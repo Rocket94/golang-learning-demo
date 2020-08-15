@@ -1,0 +1,7 @@
+GO代码必须放在工作区中：3个子目录
+    src：用于以代码形式保存GO源码文件
+    pkg：用于存放经由go install命令构建后的代码包（包含源码）
+    bin：与pkg类似，通过go install命令完成安装后，保存由go命令源码文件生成可执行文件
+
+GOPATH
+    工程根目录放在GOPATH中，添加多个GOPATH需要分隔开
