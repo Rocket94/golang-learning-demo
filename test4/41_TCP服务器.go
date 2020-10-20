@@ -7,7 +7,7 @@ import (
 
 func main(){
 	//监听
-	listener,err:=net.Listen("tcp","127.0.0.1:8081")
+	listener,err:=net.Listen("tcp","127.0.0.1:8000")
 	if err!=nil{
 		fmt.Println("err =",err)
 		return
@@ -16,6 +16,7 @@ func main(){
 
 	for{
 		conn,err:=listener.Accept()
+		defer conn.Close()
 		if err!=nil{
 			fmt.Println("err =",err)
 			continue
@@ -26,7 +27,8 @@ func main(){
 			fmt.Println("err1 =",err1)
 			continue
 		}
-		fmt.Println("buf =",string(buf[:n]))
-		defer conn.Close()
+		fmt.Println(string(buf[:n]))
+		fmt.Println("----------------------------------")
+
 	}
 }
